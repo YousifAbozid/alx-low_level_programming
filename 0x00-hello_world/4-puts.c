@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-/*
-* This is the main function works as entry point
-* and always returns 0 for successful exit
-*/
-
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-  puts("\"Programming is like building a multilingual puzzle");
-  return(0);
+puts("\"Programming is like building a multilingual puzzle");
+return (0);
 }

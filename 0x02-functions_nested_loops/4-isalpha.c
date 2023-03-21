@@ -1,5 +1,6 @@
 #include "main.h"
 #include <ctype.h>
+#include <stdio.h>
 
 /**
  * _isalpha - Entry point
@@ -10,8 +11,9 @@
 
 int _isalpha(int c)
 {
-if (isalpha(c)) { // check if c is a letter, lowercase or uppercase
-return 1; // c is alphabetic
+if (isalpha(c))
+{
+return (1);
 }
-return 0; // c is not alphabetic
+return (0);
 }

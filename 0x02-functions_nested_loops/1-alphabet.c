@@ -16,5 +16,4 @@ _putchar(tolower(i));
 }
 
 _putchar('\n');
-return (0);
 }

@@ -3,8 +3,8 @@
 
 /**
  * _islower - Entry point
- *
- * Return: 1 if c is lowercase
+ * @c: character to classify.
+ * Return: 1 if c is lowercase or otherwise 0.
  *
  */
 

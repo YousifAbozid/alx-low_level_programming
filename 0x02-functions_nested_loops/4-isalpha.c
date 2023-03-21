@@ -4,7 +4,7 @@
 /**
  * _isalpha - Entry point
  * @c: character to classify.
- * Return: 1 if c is lowercase or otherwise 0.
+ * Return: 1 if c is alpha or otherwise 0.
  *
  */
 

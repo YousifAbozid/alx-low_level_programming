@@ -2,12 +2,10 @@
 #include <stdio.h>
 
 /**
- * numbers_bove_98 - Prints numbers above 98
+ * numbers_above_98 - Prints numbers to 98
  * @n: character to classify.
- * Description: This is a longer description.
- * Don't forget that a line should not exceed 80 characters.
- * But you're totally free to use several lines to properly
- * describe your function
+ *
+ * Description: Print numbers above 98
  */
 void numbers_above_98(int n)
 {

@@ -4,12 +4,13 @@
 
 /**
  * add - Entry point
- *
+ * @i: character to classify.
+ * @j: character to classify.
  * Return: success
  *
  */
 
-int add(i, j)
+int add(int i, int j)
 {
 int sum = i + j;
 _putchar(sum + '0');

@@ -1,28 +1,28 @@
 #include <stdio.h>
+
 /**
- * main - prints the sum of all the multiples of 3 or 5 below 1024
- * @void: void
- * Return: 0 Success
+ * main - prints the first 50 Fibonacci numbers, starting with 1 and 2
+ * followed by a new line
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-int i, n = 50, t1 = 1, t2 = 2, nextTerm;
-
-printf("%d, %d, ", t1, t2);
-
-for (i = 3; i <= n; i++)
+long int i, j, k, next;
+j = 1;
+k = 2;
+for (i = 1; i <= 50; ++i)
 {
-nextTerm = t1 + t2;
-printf("%d", nextTerm);
-
-if (i != n)
-printf(", ");
-
-t1 = t2;
-t2 = nextTerm;
+if (j != 20365011074)
+{
+printf("%ld, ", j);
 }
-
-printf("\n");
-
+else
+{
+printf("%ld\n", j);
+}
+next = j + k;
+j = k;
+k = next;
+}
 return (0);
 }

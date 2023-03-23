@@ -17,7 +17,9 @@ _putchar('\n');
 else
 {
 while (n--)
+{
 _putchar('_');
 }
 _putchar('\n');
+}
 }

@@ -16,5 +16,4 @@ _putchar('\n');
 while (n--)
 _putchar('_');
 
-_putchar('\n');
 }

@@ -6,9 +6,9 @@
  */
 int main(void)
 {
-long long int n = 612852475143;
-long long int i = 2;
-long long int maxPrime = 1;
+long int n = 612852475143;
+long int i = 2;
+long int maxPrime = 1;
 
 while (n > 1)
 {

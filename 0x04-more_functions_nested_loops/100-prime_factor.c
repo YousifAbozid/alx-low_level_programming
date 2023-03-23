@@ -1,29 +1,32 @@
 #include <stdio.h>
 /**
- * main - Entry point.
+ * main - largest prime facter of 612852475143.
  *
- * Return: 0 on success.
+ * Return: 0
  */
 int main(void)
 {
-long int n = 612852475143;
-long int i = 2;
-long int maxPrime = 1;
+	long int x, i, pf;
 
-while (n > 1)
-{
-if (n % i == 0)
-{
-while (n % i == 0)
-{
-n /= i;
-}
-maxPrime = i;
-}
-i++;
-}
+	pf = -1;
+	x = 612852475143;
 
-printf("%lld\n", maxPrime);
+	while (x % 2 == 0)
+	{
+		pf = 2;
+		x = x / 2;
+	}
+	for (i = 3; i <= x / 2; i = i + 2)
+	{
+		while (x % i == 0)
+		{
+			pf = i;
+			x = x / i;
+		}
+	}
+	if (x > 2)
+		pf = x;
 
-return (0);
+	printf("%ld\n", pf);
+	return (0);
 }

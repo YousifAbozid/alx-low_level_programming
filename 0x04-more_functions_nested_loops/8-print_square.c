@@ -16,7 +16,8 @@ else
 {
 for (i = 0; i < size; i++)
 {
-for (square = 0; square < i; square++)
+_putchar(35);
+for (square = 0; square < size; square++)
 {
 _putchar(35);
 }

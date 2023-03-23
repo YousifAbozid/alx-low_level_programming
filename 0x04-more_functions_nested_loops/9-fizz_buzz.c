@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * fizzbuzz - Entry point.
+ * main - Entry point.
  *
  */
-void fizzbuzz(void)
+void main(void)
 {
 int i;
 for (i = 1; i <= 100; i++)

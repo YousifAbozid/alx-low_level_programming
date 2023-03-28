@@ -10,33 +10,24 @@
 
 int _atoi(char *s)
 {
-int result = 0;
-int sign = 1;
-int i = 0;
+int i;
+int res = 0;
+int sig = -1;
+int brk = 0;
 
-while (s[i] != '\0')
+for (i = 0; s[i] != '\0'; i++)
 {
 if (s[i] == '-')
+sig = sig * -1;
+if (s[i] >= '0' && s[i] <= '9')
 {
-sign = -1;
-i++;
-continue;
+res = res * 10;
+res -= (s[i] - '0');
+brk = 1;
 }
-else if (s[i] == '+')
-{
-sign = 1;
-i++;
-continue;
-}
-
-if (s[i] < '0' || s[i] > '9')
-{
+else if (brk == 1)
 break;
 }
-
-result = result * 10 + (s[i] - '0');
-i++;
-}
-
-return (sign *result);
+res = sig *res;
+return (res);
 }

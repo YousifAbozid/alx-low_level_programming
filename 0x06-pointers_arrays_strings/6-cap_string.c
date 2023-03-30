@@ -10,7 +10,7 @@
 
 char *cap_string(char *s)
 {
-const char* delimiters = " \t\n,;.!?\"(){}";
+const char *delimiters = " \t\n,;.!?\"(){}";
 int len = strlen(s);
 int i;
 int cap_next = 1;

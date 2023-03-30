@@ -1,6 +1,4 @@
 #include "main.h"
-#include <ctype.h>
-#include <string.h>
 
 /**
  * *leet - Entry point
@@ -10,7 +8,6 @@
 
 char *leet(char *s)
 {
-char *c;
 int i, j;
 char from[] = "aeotlAEOTL";
 char to[] = "43071";

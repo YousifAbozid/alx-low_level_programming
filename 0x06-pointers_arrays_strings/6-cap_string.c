@@ -10,11 +10,12 @@
 
 char *cap_string(char *s)
 {
-char delimiters = " \t\n,;.!?\"(){}";
-size_t len = strlen(s);
+const char* delimiters = " \t\n,;.!?\"(){}";
+int len = strlen(s);
+int i;
 int cap_next = 1;
 
-for (size_t i = 0; i < len; i++)
+for (i = 0; i < len; i++)
 {
 if (cap_next && islower(s[i]))
 {

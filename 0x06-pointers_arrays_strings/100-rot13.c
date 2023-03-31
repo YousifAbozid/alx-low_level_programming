@@ -11,7 +11,7 @@
 
 char *rot13(char *s)
 {
-int i, j;
+int i;
 int len = strlen(s);
 char *result = (char *)malloc(len + 1);
 

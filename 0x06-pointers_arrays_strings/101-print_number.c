@@ -11,20 +11,15 @@
 
 void print_number(int n)
 {
-int divisor = 1;
+unsigned int x;
+
+x = n;
 if (n < 0)
 {
-_putchar('-');
-n = -n;
+_putchar(45);
+x = -n;
 }
-while (n / divisor >= 10)
-{
-divisor *= 10;
-}
-while (divisor > 0)
-{
-_putchar((n / divisor) +'0');
-n %= divisor;
-divisor /= 10;
-}
+if (x / 10)
+print_number(x / 10);
+_putchar((x % 10) + '0');
 }

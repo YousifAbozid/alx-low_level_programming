@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * *rot13 - Entry point
@@ -8,21 +11,30 @@
 
 char *rot13(char *s)
 {
-char *result = s;
-int i;
+int i, j;
+int len = strlen(s);
+char *result = (char *)malloc(len + 1);
 
 for (i = 0; s[i] != '\0'; i++)
 {
-char c = s[i];
-if (c >= 'a' && c <= 'z')
+if (s[i] >= 'a' && s[i] <= 'z')
 {
-c = (c - 'a' + 13) % 26 + 'a';
+/* Rotate lowercase letters by 13 positions */
+result[i] = ((s[i] - 'a') + 13) % 26 + 'a';
 }
-else if (c >= 'A' && c <= 'Z')
+else if (s[i] >= 'A' && s[i] <= 'Z')
 {
-c = (c - 'A' + 13) % 26 + 'A';
+/* Rotate uppercase letters by 13 positions */
+result[i] = ((s[i] - 'A') + 13) % 26 + 'A';
 }
-result[i] = c;
+else
+{
+/* Copy non-letter characters as is */
+result[i] = s[i];
 }
+}
+/* Add null terminator to the result string */
+result[i] = '\0';
+
 return (result);
 }

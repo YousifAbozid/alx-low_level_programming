@@ -4,7 +4,7 @@
 /**
  * set_string - Entry point
  * @s: pointer
- * @to: accept
+ * @to: pointer
 */
 void set_string(char **s, char *to)
 {

@@ -2,12 +2,28 @@
 #include <string.h>
 
 /**
- * _strpbrk - Entry point
+ * _strstr - Entry point
  * @haystack: pointer
  * @needle: accept
  * Return: char
 */
 char *_strstr(char *haystack, char *needle)
 {
-return (strstr(haystack, needle));
+while (*haystack != '\0')
+{
+char *h = haystack;
+char *n = needle;
+
+while (*n == *h && *n != '\0')
+{
+n++;
+h++;
+}
+
+if (*n == '\0')
+{
+return (haystack);
+}
+}
+return (NULL);
 }

@@ -3,7 +3,7 @@
 
 /**
  * factorial - Entry point.
- * @n: the string.
+ * @n: number.
  * Return: number.
 */
 int factorial(int n)

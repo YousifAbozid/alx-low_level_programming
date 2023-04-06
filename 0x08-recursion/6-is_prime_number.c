@@ -42,8 +42,10 @@ int is_prime_number(int n)
 if (n < 2)
 return (0);
 
-int max_divisor = _sqrt_recursion(n);
+int max_divisor;
 int i;
+
+max_divisor = _sqrt_recursion(n);
 for (i = 2; i <= max_divisor; i++)
 {
 if (n % i == 0)

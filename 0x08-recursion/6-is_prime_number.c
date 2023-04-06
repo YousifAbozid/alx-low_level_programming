@@ -1,35 +1,27 @@
-#include <math.h>
 #include "main.h"
+#include <stdio.h>
 
 /**
- * find_sqrt - Entry point.
+ * is_prime_helper - Entry point.
  * @n: number.
- * @i: number.
+ * @div: number.
  * Return: number.
 */
-int find_sqrt(int n, int i)
+int is_prime_helper(int n, int div)
 {
-if (i * i == n)
-return (i);
-else if (i * i > n)
-return (-1);
-else
-return (find_sqrt(n, i + 1));
+if (n <= 2)
+{
+return (n == 2);
 }
-
-/**
- * _sqrt_recursion - Entry point.
- * @n: number.
- * Return: number.
-*/
-int _sqrt_recursion(int n)
+if (n % div == 0)
 {
-if (n < 0)
-return (-1);
-else if (n == 0 || n == 1)
-return (n);
-else
-return (find_sqrt(n, 1));
+return (0);
+}
+if (div * div > n)
+{
+return (1);
+}
+return (is_prime_helper(n, div + 1));
 }
 
 /**
@@ -39,17 +31,8 @@ return (find_sqrt(n, 1));
 */
 int is_prime_number(int n)
 {
-int max_divisor, i;
-
-if (n < 2)
+if (n <= 1)
 return (0);
 
-max_divisor = _sqrt_recursion(n);
-for (i = 2; i <= max_divisor; i++)
-{
-if (n % i == 0)
-return (0);
-}
-
-return (1);
+return (is_prime_helper(n, 2));
 }

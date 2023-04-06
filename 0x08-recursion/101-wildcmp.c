@@ -13,15 +13,18 @@ int wildcmp(char *s1, char *s2)
 if (*s1 == '\0' && *s2 == '\0')
 return (1);
 
-/* If the current characters match or s2 has a *, move to the next character */
-if (*s1 == *s2 || *s2 == '*')
-return (wildcmp(s1 + 1, s2 + 1));
-
-/* If s2 has a * and the current characters don't match, */
-/* try to match the next */
-/* character of s1 with the * in s2 or skip the * in s2 */
 if (*s2 == '*')
+{
+if (*(s2 + 1) == '\0')
+return (1);
+
+if (*s1 == '\0')
+return (wildcmp(s1, s2 + 1));
+
 return (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2));
+}
+if (*s1 == *s2)
+return (wildcmp(s1 + 1, s2 + 1));
 
 /* If none of the above cases apply, the strings are not identical */
 return (0);

@@ -1,6 +1,6 @@
 #include <math.h>
 #include "main.h"
-#include <stdio.h>
+
 /**
  * _pow_recursion - Entry point.
  * @x: number.

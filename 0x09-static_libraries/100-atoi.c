@@ -1,33 +1,35 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
 
 /**
- * _atoi - Entry point.
- * @s: pointer
- * Return: integer value
-*/
+ * _atoi - convert sting to integer
+ * @s: the string
+ * Return: integer
+ */
 
 int _atoi(char *s)
 {
-int i;
-int res = 0;
-int sig = -1;
-int brk = 0;
+	int x = 1;
+	unsigned int r = 0;
+	char c = 0;
 
-for (i = 0; s[i] != '\0'; i++)
-{
-if (s[i] == '-')
-sig = sig * -1;
-if (s[i] >= '0' && s[i] <= '9')
-{
-res = res * 10;
-res -= (s[i] - '0');
-brk = 1;
-}
-else if (brk == 1)
-break;
-}
-res = sig *res;
-return (res);
+	while (*s)
+	{
+		if (*s == '-')
+		{
+			x *= -1;
+		}
+		if (*s >= '0' && *s <= '9')
+		{
+			c = 1;
+			r = r * 10 + *s - '0';
+		}
+		else if (c)
+			break;
+		s++;
+	}
+	if (x < 0)
+	{
+		r = (-r);
+	}
+	return (r);
 }

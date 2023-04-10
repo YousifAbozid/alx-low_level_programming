@@ -1,18 +1,19 @@
 #include "main.h"
-#include <ctype.h>
-#include <stdio.h>
-
 /**
- * _isdigit - Entry point
- * @c: character to classify.
- * Return: 1 if c is uppercase or otherwise 0.
+ * _isdigit - check for digits
  *
+ * @c: checks if c is a digit
+ *
+ * Return: 1 if c is a digit, 0 if otherwise
  */
-
 int _isdigit(int c)
 {
-if (isdigit(c))
-return (1);
-else
-return (0);
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

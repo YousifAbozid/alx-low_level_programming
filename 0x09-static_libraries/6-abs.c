@@ -1,15 +1,19 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
-
 /**
- * _abs - Entry point
- * @n: character to classify.
- * Return: success
+ * _abs - entry point
  *
+ * @r: a function that computes the absolute value of integer r
+ *
+ * Return: return r if r is positive, return r * -1
  */
-
-int _abs(int n)
+int _abs(int r)
 {
-return (abs(n));
+	if (r > 0)
+	{
+		return (r);
+	}
+	else
+	{
+		return (r * -1);
+	}
 }

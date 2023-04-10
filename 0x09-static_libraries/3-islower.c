@@ -1,18 +1,19 @@
 #include "main.h"
-#include <ctype.h>
-#include <stdio.h>
-
 /**
  * _islower - Entry point
- * @c: character to classify.
- * Return: 1 if c is lowercase or otherwise 0.
  *
+ * @c: a function that checks if parameter c is lowercase
+ *
+ * Return: 1 if c is lower, 0 if otherwise
  */
-
 int _islower(int c)
 {
-if (islower(c))
-return (1);
-else
-return (0);
+	if (c >= 'a' && c <= 'z')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

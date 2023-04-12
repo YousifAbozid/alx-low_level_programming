@@ -1,108 +1,81 @@
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 #include "main.h"
 
-int count_words(char *str);
-int get_word_length(char *str);
-void free_words(char **words, int num_words);
+/**
+ * word_check - check words in string
+ * @s: the string
+ * Return: no. of words
+ */
+
+int word_check(char *s)
+{
+	int i, flag, wc;
+
+	flag = 0;
+	wc = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if (s[i] == ' ')
+		{
+			flag = 0;
+		}
+		else if (flag == 0)
+		{
+			flag = 1;
+			wc++;
+		}
+	}
+	return (wc);
+}
 
 /**
- * strtow - splits a string into words
- * @str: the string to split
- *
- * Return: a pointer to an array of strings (words) or NULL if an error occurs
+ * strtow - split string
+ * @str: string to split
+ * Return: char
  */
+
 char **strtow(char *str)
 {
-char **words;
-int num_words, i, j, k, len;
+	char **s, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
 
-if (str == NULL || *str == '\0')
-return (NULL);
+	while (*(str + len))
+		len++;
 
-num_words = count_words(str);
-if (num_words == 0)
-return (NULL);
+	words = word_check(str);
+	if (words == 0)
+		return (NULL);
 
-words = malloc(sizeof(char *) * (num_words + 1));
-if (words == NULL)
-return (NULL);
+	s = (char **) malloc(sizeof(char *) * (words + 1));
+	if (s == NULL)
+		return (NULL);
 
-for (i = 0, j = 0; i < num_words; i++, j++)
-{
-while (*str == ' ')
-str++;
+	for (i = 0; i <= len; i++)
+	{
+		if (str[i] == ' ' || str[i] == '\0')
+		{
+			if (c)
+			{
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
+					return (NULL);
 
-len = get_word_length(str);
-words[i] = malloc(sizeof(char) * (len + 1));
-if (words[i] == NULL)
-{
-free_words(words, i);
-return (NULL);
-}
-
-for (k = 0; k < len; k++)
-words[i][k] = *(str++);
-
-words[i][k] = '\0';
-}
-
-words[i] = NULL;
-return (words);
-}
-
-/**
- * count_words - counts the number of words in a string
- * @str: the string to count words in
- *
- * Return: the number of words in the string
- */
-int count_words(char *str)
-{
-int count = 0, in_word = 0;
-
-while (*str != '\0')
-{
-if (*str == ' ')
-in_word = 0;
-else if (in_word == 0)
-{
-in_word = 1;
-count++;
-}
-str++;
-}
-
-return (count);
-}
-
-/**
- * get_word_length - gets the length of a word in a string
- * @str: the string containing the word
- *
- * Return: the length of the word
- */
-int get_word_length(char *str)
-{
-int len = 0;
-
-while (*(str++) != ' ' && *str != '\0')
-len++;
-
-return (len);
-}
-
-/**
- * free_words - frees an array of words
- * @words: the array of words to free
- * @num_words: the number of words in the array
- */
-void free_words(char **words, int num_words)
-{
-int i;
-
-for (i = 0; i < num_words; i++)
-free(words[i]);
-
-free(words);
+				while (start < end)
+				{
+					*tmp++ = str[start++];
+				}
+				*tmp = '\0';
+				s[k] = tmp - c;
+				k++;
+				c = 0;
+			}
+		}
+		else if (c++ == 0)
+			start = i;
+	}
+	s[k] = NULL;
+	return (s);
 }

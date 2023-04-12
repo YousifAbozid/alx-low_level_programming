@@ -1,46 +1,52 @@
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 #include "main.h"
 
 int count_words(char *str);
-int find_word_length(char *str);
-char *copy_word(char *str, int n);
+int get_word_length(char *str);
+void free_words(char **words, int num_words);
 
 /**
  * strtow - splits a string into words
  * @str: the string to split
  *
- * Return: a pointer to an array of strings (words)
+ * Return: a pointer to an array of strings (words) or NULL if an error occurs
  */
 char **strtow(char *str)
 {
 char **words;
-int i, j, k, n, count;
+int num_words, i, j, k, len;
 
 if (str == NULL || *str == '\0')
 return (NULL);
 
-count = count_words(str);
-words = malloc((count + 1) * sizeof(char *));
+num_words = count_words(str);
+if (num_words == 0)
+return (NULL);
+
+words = malloc(sizeof(char *) * (num_words + 1));
 if (words == NULL)
 return (NULL);
 
-for (i = 0, j = 0; i < count; i++, j += n + 1)
+for (i = 0, j = 0; i < num_words; i++, j++)
 {
-while (isspace(str[j]))
-j++;
+while (*str == ' ')
+str++;
 
-n = find_word_length(str + j);
-words[i] = copy_word(str + j, n);
+len = get_word_length(str);
+words[i] = malloc(sizeof(char) * (len + 1));
 if (words[i] == NULL)
 {
-for (k = 0; k < i; k++)
-free(words[k]);
-free(words);
+free_words(words, i);
 return (NULL);
 }
+
+for (k = 0; k < len; k++)
+words[i][k] = *(str++);
+
+words[i][k] = '\0';
 }
+
 words[i] = NULL;
 return (words);
 }
@@ -53,12 +59,11 @@ return (words);
  */
 int count_words(char *str)
 {
-int count = 0;
-int in_word = 0;
+int count = 0, in_word = 0;
 
 while (*str != '\0')
 {
-if (isspace(*str))
+if (*str == ' ')
 in_word = 0;
 else if (in_word == 0)
 {
@@ -67,43 +72,37 @@ count++;
 }
 str++;
 }
+
 return (count);
 }
 
 /**
- * find_word_length - finds the length of a word in a string
+ * get_word_length - gets the length of a word in a string
  * @str: the string containing the word
  *
  * Return: the length of the word
  */
-int find_word_length(char *str)
+int get_word_length(char *str)
 {
-int n = 0;
+int len = 0;
 
-while (str[n] != '\0' && !isspace(str[n]))
-n++;
+while (*(str++) != ' ' && *str != '\0')
+len++;
 
-return (n);
+return (len);
 }
 
 /**
- * copy_word - copies a word from a string into a new string
- * @str: the string containing the word
- * @n: the length of the word
- *
- * Return: a pointer to the new string containing the word
+ * free_words - frees an array of words
+ * @words: the array of words to free
+ * @num_words: the number of words in the array
  */
-char *copy_word(char *str, int n)
+void free_words(char **words, int num_words)
 {
-char *word = malloc((n + 1) * sizeof(char));
 int i;
 
-if (word == NULL)
-return (NULL);
+for (i = 0; i < num_words; i++)
+free(words[i]);
 
-for (i = 0; i < n; i++)
-word[i] = str[i];
-word[i] = '\0';
-
-return (word);
+free(words);
 }

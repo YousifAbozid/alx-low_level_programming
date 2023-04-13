@@ -7,7 +7,7 @@
  * @n: int
  * @s1: pointer
  * @s2: pointer
- * Return: void
+ * Return: char
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {

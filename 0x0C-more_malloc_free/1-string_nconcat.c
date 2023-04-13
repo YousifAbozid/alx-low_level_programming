@@ -35,7 +35,7 @@ s2_len = n;
 result_len = s1_len + s2_len + 1;
 
 /* Allocate memory for the result string */
-result = malloc(result_len);
+result = malloc(sizeof(char) * result_len);
 
 /* If malloc fails, return NULL */
 if (result == NULL)
@@ -44,12 +44,11 @@ return (NULL);
 /* Copy s1 into the result string */
 strcpy(result, s1);
 
-/* Append the first n bytes of s2 (or the entire string s2) to the result string */
+/* Append the first n bytes of s2 to the result string */
 strncat(result, s2, s2_len);
 
 /* Add null terminator */
 result[result_len - 1] = '\0';
 
-/* Return the result string */
 return (result);
 }

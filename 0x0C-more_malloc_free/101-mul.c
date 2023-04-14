@@ -11,7 +11,8 @@
  */
 int main(int argc, char **argv)
 {
-int i, j, num1, num2, result;
+char *num1, *num2;
+int a, b, result, i;
 
 if (argc != 3)
 {
@@ -19,21 +20,30 @@ printf("Error\n");
 return (98);
 }
 
-for (i = 1; i <= 2; i++)
+num1 = argv[1];
+num2 = argv[2];
+/* Check that num1 and num2 are composed only of digits */
+for (i = 0; num1[i] != '\0'; i++)
 {
-for (j = 0; argv[i][j]; j++)
-{
-if (!isdigit(argv[i][j]))
+if (!isdigit(num1[i]))
 {
 printf("Error\n");
 return (98);
 }
 }
+for (i = 0; num2[i] != '\0'; i++)
+{
+if (!isdigit(num2[i]))
+{
+printf("Error\n");
+return (98);
 }
-
-num1 = atoi(argv[1]);
-num2 = atoi(argv[2]);
-result = num1 *num2;
+}
+/* Convert num1 and num2 to integers */
+a = atoi(num1);
+b = atoi(num2);
+/* Compute the product and print the result */
+result = a *b;
 printf("%d\n", result);
 
 return (0);

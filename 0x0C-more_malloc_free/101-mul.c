@@ -11,40 +11,22 @@
  */
 int main(int argc, char **argv)
 {
-char *num1, *num2;
-int a, b, result, i;
-
+unsigned long mul;
+int i, j;
 if (argc != 3)
+{ printf("Error\n");
+exit(98); }
+for (i = 1; i < argc; i++)
 {
-printf("Error\n");
-return (98);
-}
-
-num1 = argv[1];
-num2 = argv[2];
-/* Check that num1 and num2 are composed only of digits */
-for (i = 0; num1[i] != '\0'; i++)
+for (j = 0; argv[i][j] != '\0'; j++)
 {
-if (!isdigit(num1[i]))
-{
-printf("Error\n");
-return (98);
+if (argv[i][j] > 57 || argv[i][j] < 48)
+{ printf("Error\n");
+exit(98); }
 }
 }
-for (i = 0; num2[i] != '\0'; i++)
-{
-if (!isdigit(num2[i]))
-{
-printf("Error\n");
-return (98);
-}
-}
-/* Convert num1 and num2 to integers */
-a = atoi(num1);
-b = atoi(num2);
-/* Compute the product and print the result */
-result = a *b;
-printf("%d\n", result);
+mul = atol(argv[1]) * atol(argv[2]);
+printf("%lu\n", mul);
 
 return (0);
 }

@@ -10,15 +10,20 @@ void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
 
+void print_char(va_list args);
+void print_int(va_list args);
+void print_float(va_list args);
+void print_string(va_list args);
+
 /**
- * struct fmt_t - struct
+ * struct types - struct
  * @c: data type
  * @f: function
  */
-typedef struct fmt_t
+typedef struct types
 {
-	char type;
+	char c;
 	void (*f)(va_list);
-} fmt_t;
+} types;
 
 #endif /* VARIADIC_FUNCTIONS_H */

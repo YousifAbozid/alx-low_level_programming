@@ -32,7 +32,7 @@ void print_all(const char * const format, ...)
 			if (fmts[j].type == format[i])
 			{
 				printf("%s", separator);
-				fmts[j].print_func(args);
+				fmts[j].f(args);
 				separator = ", ";
 				break;
 			}

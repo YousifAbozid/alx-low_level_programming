@@ -1,45 +1,6 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - prints anything
- * @format: list of types of arguments passed to the function
- */
-void print_all(const char * const format, ...)
-{
-int i, j;
-char *separator = "";
-va_list vprint;
-
-types opt[] = {
-{'c', print_char},
-{'i', print_int},
-{'f', print_float},
-{'s', print_string},
-{'\0', NULL}
-};
-
-va_start(vprint, format);
-i = 0;
-while (format != NULL && format[i] != '\0')
-{
-j = 0;
-while (opt[j].c != '\0')
-{
-if (opt[j].c == format[i])
-{
-printf("%s", separator);
-opt[j].f(vprint);
-separator = ", ";
-}
-j++;
-}
-i++;
-}
-va_end(vprint);
-printf("\n");
-}
-
-/**
  * print_char - prints a character
  * @args: va_list containing the character to print
  */
@@ -78,4 +39,43 @@ void print_string(va_list args)
 		printf("(nil)");
 	else
 		printf("%s", str);
+}
+
+/**
+ * print_all - prints anything
+ * @format: list of types of arguments passed to the function
+ */
+void print_all(const char * const format, ...)
+{
+int i, j;
+char *separator = "";
+va_list vprint;
+
+types opt[] = {
+{'c', print_char},
+{'i', print_int},
+{'f', print_float},
+{'s', print_string},
+{'\0', NULL}
+};
+
+va_start(vprint, format);
+i = 0;
+while (format != NULL && format[i] != '\0')
+{
+j = 0;
+while (opt[j].c != '\0')
+{
+if (opt[j].c == format[i])
+{
+printf("%s", separator);
+opt[j].f(vprint);
+separator = ", ";
+}
+j++;
+}
+i++;
+}
+va_end(vprint);
+printf("\n");
 }

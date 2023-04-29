@@ -1,20 +1,18 @@
 section .data
-    msg db 'Hello, Holberton', 0   ; null-terminated string
+    hello db "Hello, Holberton",10
 
 section .text
-    global main
+    global _start
 
-    extern printf
+_start:
+    ; write the string to stdout
+    mov eax, 4          ; system call for write
+    mov ebx, 1          ; file descriptor for stdout
+    mov ecx, hello      ; pointer to the string
+    mov edx, 16         ; length of the string
+    int 0x80            ; call the kernel
 
-main:
-    push rbp        ; save base pointer
-    mov rbp, rsp    ; set up stack frame
-
-    mov rdi, msg    ; set up first argument to printf
-    xor eax, eax    ; clear the EAX register (used as second argument)
-    call printf     ; call printf with two arguments
-
-    mov rsp, rbp    ; restore stack pointer
-    pop rbp         ; restore base pointer
-    xor eax, eax    ; set return value to 0
-    ret             ; return from main
+    ; exit with status code 0
+    mov eax, 1          ; system call for exit
+    xor ebx, ebx        ; status code 0
+    int 0x80            ; call the kernel

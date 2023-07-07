@@ -23,8 +23,7 @@ At ALX, there are several sprints to become a full stack software engineer. One 
 - Functions
 - Pre-processor, macros, header files, pointers, double pointers, function pointers, pointer arithmetic
 - Makefiles
-- Sorting and search algorithms
-  and more!
+- Sorting and search algorithms and more!
 
 ## Requirements
 
@@ -48,4 +47,8 @@ At ALX, there are several sprints to become a full stack software engineer. One 
 12. [0x0C-more_malloc_free](./0x0C-more_malloc_free)
 13. [0x0D-preprocessor](./0x0D-preprocessor)
 14. [0x0E-structures_typedef](./0x0E-structures_typedef)
-15. [0x10-variadic_functions](./0x10-variadic_functions)
+15. [0x0F-function_pointers](./0x0F-function_pointers)
+16. [0x10-variadic_functions](./0x10-variadic_functions)
+17. [0x12-singly_linked_lists](./0x12-singly_linked_lists)
+18. [0x13-more_singly_linked_lists](./0x13-more_singly_linked_lists)
+19. [0x14-bit_manipulation](./0x14-bit_manipulation)

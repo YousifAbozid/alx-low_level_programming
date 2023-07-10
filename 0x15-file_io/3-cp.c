@@ -57,7 +57,7 @@ void print_error_and_exit(const char *message, const char *arg, int exit_code)
  */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, on_close;
+	int fd_from, fd_to;
 	ssize_t bytes_written, bytes_read;
 	char buffer[BUFFER_SIZE];
 	char *file_from, *file_to;
